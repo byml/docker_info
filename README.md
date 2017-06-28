@@ -1,12 +1,10 @@
-
-
 ## 简介 {#articleHeader1}
 
 [https://docs.docker.com/engine/docker-overview/](https://docs.docker.com/engine/docker-overview/)
 
 Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上。Docker在Linux系统上迅速创建一个容器，并在容器上部署和运行应用程序，并通过配置文件可以轻松实现应用程序的自动化安装、部署和升级。
 
-![](/images/docker.jpg)
+![](https://byml.github.io/docker_info/images/docker.jpg)
 
 ## 容器 VS 虚拟机
 
@@ -27,7 +25,7 @@ Docker 包括三个基本概念
 
 * 镜像（Image）
 * 容器（Container）
-* 仓库（Repository）![](/images/docker-architecture.svg)
+* 仓库（Repository）![](https://byml.github.io/docker_info/images/docker-architecture.svg)
 
 ## 特性
 
@@ -55,7 +53,7 @@ Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功�
 2. 因为/proc包含正在运行的进程，因此在container中的pseudo-filesystem的/proc目录只能看到自己namespace中的进程
 3. 因为namespace允许嵌套，父namespace可以影响子namespace的进程，所以子namespace的进程可以在父namespace中看到，但是具有不同的pid
 
-![](/images/linux-namespace.png)
+![](https://byml.github.io/docker_info/images/linux-namespace.png)
 
 典型的Linux启动到运行需要两个FS - bootfs + rootfs
 
@@ -63,11 +61,9 @@ bootfs \(boot file system\) 主要包含 bootloader 和 kernel, bootloader主要
 
 rootfs \(root file system\) 包含的就是典型 Linux 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。
 
-
-
-| ![](/images/docker-2.jpg) | ![](/images/docker-3.jpg) | ![](/images/docker-5.jpg) |
+| ![](https://byml.github.io/docker_info/images/docker-2.jpg) | ![](https://byml.github.io/docker_info/images/docker-3.jpg) | ![](https://byml.github.io/docker_info/images/docker-5.jpg) |
 | :--- | :--- | :--- |
-| ![](/images/docker-6.jpg) | ![](/images/docker-7.jpg) | ![](/images/docker-8.jpg) |
+| ![](https://byml.github.io/docker_info/images/docker-6.jpg) | ![](https://byml.github.io/docker_info/images/docker-7.jpg) | ![](https://byml.github.io/docker_info/images/docker-8.jpg) |
 
 采用AUFS作为docker的container的文件系统，能够提供如下好处：
 

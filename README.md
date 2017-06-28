@@ -38,13 +38,11 @@ Docker的主要特性如下（摘自[Docker：具备一致性的自动化软件�
 
 Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功能，从而利用更加节省的硬件资源提供给用户更多的计算资源。
 
-1. 隔离性 - 每个用户实例之间相互隔离, 互不影响。kernel namespace
+1. 隔离性 - 每个用户实例之间相互隔离, 互不影响。Linux Namespace \(ns\)
 2. 可配额/可度量 - 每个用户实例可以按需提供其计算资源，所使用的资源可以被计量。 Control Groups \(cgroups\)
 3. 移动性 - 用户的实例可以很方便地复制、移动和重建。AUFS\(AnotherUnionFS\)
 
 ![](/images/linux-namespace.png)
-
-
 
 采用AUFS作为docker的container的文件系统，能够提供如下好处：
 

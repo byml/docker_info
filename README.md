@@ -1,16 +1,23 @@
-##  {#articleHeader1}
+
 
 ## 简介 {#articleHeader1}
 
 [https://docs.docker.com/engine/docker-overview/](https://docs.docker.com/engine/docker-overview/)
 
-Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。
+Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上。Docker在Linux系统上迅速创建一个容器，并在容器上部署和运行应用程序，并通过配置文件可以轻松实现应用程序的自动化安装、部署和升级。
 
 ![](/images/docker.jpg)
 
 ## 容器 VS 虚拟机
 
 ![](https://byml.github.io/docker_info/images/docker-0.jpg)
+
+| **特性** | **容器** | **虚拟机** |
+| :---: | :---: | :---: |
+| 启动 | 秒级 | 分钟级 |
+| 硬盘占用 | 一般为MB | 一般为GB |
+| 性能 | 接近原生 | 弱于 |
+| 系统支持量 | 单机支持上千个 | 一般几十个 |
 
 ## 架构
 
@@ -50,9 +57,17 @@ Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功�
 
 ![](/images/linux-namespace.png)
 
-| ![](/images/docker-2.jpg) | ![](/images/docker-3.jpg) |
-| :--- | :--- |
-| ![](/images/docker-6.jpg) | ![](/images/docker-7.jpg) |
+典型的Linux启动到运行需要两个FS - bootfs + rootfs
+
+bootfs \(boot file system\) 主要包含 bootloader 和 kernel, bootloader主要是引导加载kernel
+
+rootfs \(root file system\) 包含的就是典型 Linux 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。
+
+
+
+| ![](/images/docker-2.jpg) | ![](/images/docker-3.jpg) | ![](/images/docker-5.jpg) |
+| :--- | :--- | :--- |
+| ![](/images/docker-6.jpg) | ![](/images/docker-7.jpg) | ![](/images/docker-8.jpg) |
 
 采用AUFS作为docker的container的文件系统，能够提供如下好处：
 
@@ -62,5 +77,9 @@ Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功�
 4. 升级更方便 - 相比于 copy-on-write 类型的FS，base-image也是可以挂载为可writeable的，可以通过更新base image而一次性更新其之上的container
 5. 允许在不更改base-image的同时修改其目录中的文件 - 所有写操作都发生在最上层的writeable层中，这样可以大大增加base image能共享的文件内容。
 
+## 参考资料
 
+[https://www.docker.com/](https://www.docker.com/)
+
+[https://yeasy.gitbooks.io/docker\_practice/content/](https://yeasy.gitbooks.io/docker_practice/content/)
 

@@ -42,5 +42,17 @@ Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功�
 2. 可配额/可度量 - 每个用户实例可以按需提供其计算资源，所使用的资源可以被计量。 Control Groups \(cgroups\)
 3. 移动性 - 用户的实例可以很方便地复制、移动和重建。AUFS\(AnotherUnionFS\)
 
+![](/images/linux-namespace.png)
+
+
+
+采用AUFS作为docker的container的文件系统，能够提供如下好处：
+
+1. 节省存储空间 - 多个container可以共享base image存储
+2. 快速部署 - 如果要部署多个container，base image可以避免多次拷贝
+3. 内存更省 - 因为多个container共享base image, 以及OS的disk缓存机制，多个container中的进程命中缓存内容的几率大大增加
+4. 升级更方便 - 相比于 copy-on-write 类型的FS，base-image也是可以挂载为可writeable的，可以通过更新base image而一次性更新其之上的container
+5. 允许在不更改base-image的同时修改其目录中的文件 - 所有写操作都发生在最上层的writeable层中，这样可以大大增加base image能共享的文件内容。
+
 
 

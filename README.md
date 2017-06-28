@@ -42,6 +42,12 @@ Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功�
 2. 可配额/可度量 - 每个用户实例可以按需提供其计算资源，所使用的资源可以被计量。 Control Groups \(cgroups\)
 3. 移动性 - 用户的实例可以很方便地复制、移动和重建。AUFS\(AnotherUnionFS\)
 
+**pid namespace**
+
+1. 每个namespace中的进程只能影响自己的同一个namespace或子namespace中的进程
+2. 因为/proc包含正在运行的进程，因此在container中的pseudo-filesystem的/proc目录只能看到自己namespace中的进程
+3. 因为namespace允许嵌套，父namespace可以影响子namespace的进程，所以子namespace的进程可以在父namespace中看到，但是具有不同的pid
+
 ![](/images/linux-namespace.png)
 
 采用AUFS作为docker的container的文件系统，能够提供如下好处：

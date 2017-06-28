@@ -50,6 +50,10 @@ Docker核心解决的问题是利用Linux 容器\(LXC\)来实现类似VM的功�
 
 ![](/images/linux-namespace.png)
 
+| ![](/images/docker-2.jpg) | ![](/images/docker-3.jpg) |
+| :--- | :--- |
+| ![](/images/docker-6.jpg) | ![](/images/docker-7.jpg) |
+
 采用AUFS作为docker的container的文件系统，能够提供如下好处：
 
 1. 节省存储空间 - 多个container可以共享base image存储

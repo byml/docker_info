@@ -1,5 +1,3 @@
-
-
 ## 简介 {#articleHeader1}
 
 ![](/images/docker.jpg)
@@ -12,7 +10,13 @@
 
 Docker 使用客户端-服务器 \(C/S\) 架构模式，使用远程API来管理和创建Docker容器。Docker 容器通过 Docker 镜像来创建。
 
-![](https://byml.github.io/docker_info/images/docker-1.jpg)
+Docker 包括三个基本概念
+
+* 镜像（Image）
+* 容器（Container）
+* 仓库（Repository）![](/images/docker-architecture.svg)
+
+
 
 ## 特性
 
@@ -25,6 +29,10 @@ Docker的主要特性如下（摘自[Docker：具备一致性的自动化软件�
 5. 日志记录：Docker将会收集和记录每个进程容器的标准流（stdout/stderr/stdin），用于实时检索或批量检索。
 6. 变更管理：容器文件系统的变更可以提交到新的映像中，并可重复使用以创建更多的容器。无需使用模板或手动配置。
 7. 交互式Shell：Docker可以分配一个虚拟终端并关联到任何容器的标准输入上，例如运行一个一次性交互shell。
+
+```
+
+```
 
 
 

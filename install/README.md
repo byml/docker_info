@@ -1,6 +1,6 @@
 # 安装与配置
 
-安装 Docker
+## 安装 Docker
 
 Docker 软件包已经包括在默认的 CentOS-Extras 软件源里。因此想要安装 docker，只需要运行下面的 yum 命令：
 
@@ -18,7 +18,7 @@ Docker 软件包已经包括在默认的 CentOS-Extras 软件源里。因此想�
 
 `chkconfig docker on`
 
-配置 Docker
+## 配置 Docker
 
 因为国内访问 Docker Hub 较慢, 可以使用腾讯云提供的国内镜像源, 加速访问 Docker Hub
 

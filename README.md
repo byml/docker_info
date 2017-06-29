@@ -1,4 +1,4 @@
-## 简介 {#articleHeader1}
+# 简介
 
 [https://docs.docker.com/engine/docker-overview/](https://docs.docker.com/engine/docker-overview/)
 
